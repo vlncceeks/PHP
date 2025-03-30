@@ -14,23 +14,23 @@
     <main>
         <form action="https://httpbin.org/post" method="post">
             <label for="name">Имя пользователя</label>
-            <input type="text" id="name" value="Ksenia"/>
+            <input type="text" id="name" name="username" value="Ksenia"/>
             <br/>
             <label for="email">Email</label>
-            <input type="email" id="email" value="Ksenia@gmail.com"/>
+            <input type="email" id="email" name="email" value="Ksenia@gmail.com"/>
             <br/>
             <fieldset>
                 <legend>Тип обращения</legend>
 
-                <input type="radio" id="claim"/>
+                <input type="radio" name="claim" id="claim"/>
                 <label for="claim">Жалоба</lable>
                 <br/>
 
-                <input type="radio" id="proposal"/>
+                <input type="radio" name="proposal" id="proposal"/>
                 <label for="proposal">Предложение</lable>
                 <br/>
                 
-                <input type="radio" id="gratitude"/>
+                <input type="radio" name="gratitude" id="gratitude"/>
                 <label for="gratitude">Благодарность</lable>
             </fieldset>
             <br/>
@@ -40,11 +40,11 @@
             <fieldset>
                 <legend>Вариант ответа</legend>
 
-                <input type="checkbox" id="sms"/>
+                <input type="checkbox" name="sms" id="sms"/>
                 <label for="sms">SMS</lable>
                 <br/>
 
-                <input type="checkbox" id="e-mail"/>
+                <input type="checkbox" name="e-mail" id="e-mail"/>
                 <label for="e-mail">e-mail</lable>
             </fieldset>
             <br/>
