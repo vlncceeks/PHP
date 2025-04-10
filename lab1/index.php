@@ -8,7 +8,9 @@
 </head>
 <body>
     <header>
-        <img src="logo.svg" style="filter: brightness(0)" width=200px alt="logo_polytech">
+        <a href="../mainPage.html">
+            <img src="../logo.svg" style="filter: brightness(0)" width=200px alt="logo_polytech">
+        </a>
         <p>2.1.Домашняя работа: Hello, World!</p>
     </header>
     <main>
