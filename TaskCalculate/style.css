@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.calculator {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.calculator h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.display {
+    width: 100%;
+    height: 60px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 24px;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+button {
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #d0d0d0;
+}
+
+button:nth-child(4n) {
+    background-color: #ff9500;
+    color: white;
+}
+
+button:nth-child(4n):hover {
+    background-color: #e08500;
+}
+
+button:nth-child(3) {
+    background-color: #ff3b30;
+    color: white;
+}
+
+button:nth-child(3):hover {
+    background-color: #e0352a;
+}
