@@ -25,7 +25,7 @@ function calculate($val) {
     $val = str_replace('-+', '-', $val);
     $val = str_replace('++', '+', $val);
 
-    while (preg_match('/(\-?\d+)([\/\*])(\-?\d+)/', $val, $matches)) {
+    while (preg_match('/(\-?\d+\.?\d*)([\/\*])(\-?\d+\.?\d*)/', $val, $matches)) {
 
         $left = $matches[1];
         $operator = $matches[2];
