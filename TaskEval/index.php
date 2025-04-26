@@ -1,22 +1,6 @@
-<?php
-header('Content-Type: text/plain');
-function validateScaples($val) {
-    $countScaples = 0;
-    for ($i = 0; $i < strlen($val); $i++) {
-        if ($val[$i] == '(') 
-            $countScaples++;
-        elseif ($val[$i] == ')') {
-            $countScaples--;
-            if ($countScaples < 0) {
-                return false; 
-            }
-        }
-    }
-    return $countScaples == 0; 
-}
+<?php 
 function calculate($val) {
     if (strlen($val) == 0) return 0;
-    if (!validateScaples($val)) return "parenthesis error";
 
     $val = "0+".$val;
     $val = str_replace(' ', '', $val);
@@ -27,7 +11,7 @@ function calculate($val) {
 
     while (preg_match('/([a-z]+)\((-?\d+)\)/i', $val, $matches)) {
         $function = strtolower($matches[1]);
-        $degrees =  (int) $matches[2];
+        $degrees =  (double) $matches[2];
         $result = '';
 
         switch ($function) {
@@ -55,11 +39,11 @@ function calculate($val) {
         $newVal = 1;
         switch ($operator) {
             case '*':
-                $newVal = (int) $left * (int) $right;
+                $newVal = (double) $left * (double) $right;
                 break;
             case '/':
-                if ((int) $right === 0) return "division by zero";
-                else $newVal = (int) $left / (int) $right;
+                if ((double) $right === 0) return "division by zero";
+                else $newVal = (double) $left / (double) $right;
                 break;          
         }
         $val = str_replace($matches[0], $newVal, $val);
@@ -69,21 +53,10 @@ function calculate($val) {
         $left = $matches[1];
         $operator = $matches[2];
         $right = $matches[3];
-        $newVal = $operator === '+' ? (int) $left + (int) $right : (int) $left - (int) $right;
+        $newVal = $operator === '+' ? (double) $left + (double) $right : (double) $left - (double) $right;
         $val = str_replace($matches[0], $newVal, $val);
     }
     return $val;
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['expression'])) { 
-        $res = calculate($_POST['expression']); 
-        if (is_numeric($res)) { 
-            echo $res; 
-        } else { 
-            echo 'Ошибка: ' . $res; 
-        }
-    }
-} else {
-    echo "Ошибка: Неверный метод запроса";
-}
+echo(calculate('4/3*cos(30)'));
 ?>
